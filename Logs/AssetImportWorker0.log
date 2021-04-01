@@ -1382,3 +1382,11 @@ Received Import Request.
 Start importing Assets/Robo/Robo.controller using Guid(08d1f887f56fb17499b8734ea1744181) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4aba459b78ff22dcb27f33d5cf3b789') in 0.019717 seconds
   Import took 0.028867 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 509.787791 seconds.
+  path: Assets/Robo/RoboVer2_model_02.fbx
+  artifactKey: Guid(0d14ced9f05523340a5151be05e9f8eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Robo/RoboVer2_model_02.fbx using Guid(0d14ced9f05523340a5151be05e9f8eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e29725d256e064977259b20d9c57d37') in 0.119604 seconds
+  Import took 0.124415 seconds .
+
