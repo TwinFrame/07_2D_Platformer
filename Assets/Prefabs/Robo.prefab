@@ -130,8 +130,8 @@ MonoBehaviour:
   - {fileID: 5472697697231910464}
   - {fileID: 1000812833473157007}
   m_Bounds:
-    m_Center: {x: 0.0054676235, y: 0.0073384047, z: 0}
-    m_Extent: {x: 0.50398695, y: 1.0509152, z: 0}
+    m_Center: {x: 0.005477965, y: 0.0073406696, z: 0}
+    m_Extent: {x: 0.50399166, y: 1.0509155, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &1162379612949292978
@@ -267,8 +267,8 @@ MonoBehaviour:
   - {fileID: 8454671647181594598}
   - {fileID: 2963098835366656774}
   m_Bounds:
-    m_Center: {x: 0.005564958, y: 0.004495144, z: 0}
-    m_Extent: {x: 0.48858297, y: 1.013773, z: 0}
+    m_Center: {x: 0.0055762827, y: 0.0044976473, z: 0}
+    m_Extent: {x: 0.48858806, y: 1.013772, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &2851247158882984156
@@ -494,8 +494,8 @@ MonoBehaviour:
   - {fileID: 8139650944132762515}
   - {fileID: 5580908524336297843}
   m_Bounds:
-    m_Center: {x: 0.02868402, y: 0.000016450882, z: 0}
-    m_Extent: {x: 0.34140044, y: 0.9963719, z: 0}
+    m_Center: {x: 0.028661609, y: 0.00001770258, z: 0}
+    m_Extent: {x: 0.34140086, y: 0.99636984, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3869572266051765153
@@ -514,6 +514,9 @@ GameObject:
   - component: {fileID: 84667729}
   - component: {fileID: 1651822774659255339}
   - component: {fileID: 889056440568875751}
+  - component: {fileID: 4559582932280896506}
+  - component: {fileID: 377614611180638203}
+  - component: {fileID: 4837055561956214656}
   m_Layer: 0
   m_Name: Robo
   m_TagString: Untagged
@@ -607,7 +610,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.23759747, y: 3.2076783}
-  m_Size: {x: 1.7289522, y: 5.497739}
+  m_Size: {x: 1.728952, y: 5.497739}
   m_Direction: 0
 --- !u!50 &3566202973757075595
 Rigidbody2D:
@@ -642,6 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e53bf6ffc7ec574484bdeb7d2a5bf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 100
 --- !u!95 &84667729
 Animator:
   serializedVersion: 3
@@ -688,6 +692,141 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9ff852683718642b547c5f5fb792f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4559582932280896506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869572266051765153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b97f5803dd4fe44834aaf8c9a45358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &377614611180638203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869572266051765153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea106b7d41c32be4e828e1bed2fc4c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tookDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2393292835132592501}
+        m_TargetAssemblyTypeName: Robo, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!82 &4837055561956214656
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869572266051765153}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4408425410847862562
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,8 +1023,8 @@ MonoBehaviour:
   - {fileID: 9168302144742496857}
   - {fileID: 1349988418337758440}
   m_Bounds:
-    m_Center: {x: -0.5295399, y: 0.0019113421, z: 0}
-    m_Extent: {x: 0.3353867, y: 0.98461354, z: 0}
+    m_Center: {x: -0.5295526, y: 0.0019097924, z: 0}
+    m_Extent: {x: 0.33538613, y: 0.9846143, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &6474077335713871724
@@ -989,8 +1128,8 @@ MonoBehaviour:
   - {fileID: 636278137528413181}
   - {fileID: 6861118192164311360}
   m_Bounds:
-    m_Center: {x: -0.0136656165, y: -0.0023944378, z: 0}
-    m_Extent: {x: 0.6155837, y: 1.750757, z: 0}
+    m_Center: {x: -0.013659298, y: -0.0023940802, z: 0}
+    m_Extent: {x: 0.61558366, y: 1.7507565, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &6574954532154359383

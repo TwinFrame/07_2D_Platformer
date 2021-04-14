@@ -40,8 +40,6 @@ public class RoboMovement : MonoBehaviour
 
         _runningTime += Time.deltaTime;
 
-        Debug.Log(_runningTime);
-
         if (_runningTime >= _timeBeforeRunning)
         {
             _animator.SetBool("Run", true);
@@ -49,7 +47,7 @@ public class RoboMovement : MonoBehaviour
 
         if (_animator.GetBool("Run"))
         {
-            _currentSpeed = _speed * 1.6f;
+            _currentSpeed = _speed * 1.8f;
         }
         else
         {

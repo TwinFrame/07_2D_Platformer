@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CollectCheckPoints : MonoBehaviour
 {
+	[SerializeField] UnityEvent _finished;
+
 	private CheckPointFlag[] _checkPointFlags;
+	private bool _isCollectedAllCheckpoint;
 
 	private void Start()
 	{
@@ -12,16 +16,30 @@ public class CollectCheckPoints : MonoBehaviour
 
 	}
 
-	public void CollectedAllCheckPoints()
+	private void FixedUpdate()
+	{
+		if (!_isCollectedAllCheckpoint)
+		{
+			_isCollectedAllCheckpoint = CollectedAllCheckPoints();
+		}
+	}
+
+	public bool CollectedAllCheckPoints()
 	{
 		foreach (var flag in _checkPointFlags)
 		{
 			if (!flag._isReached)
 			{
-				return;
+				return false;
 			}
 		}
 
-		Debug.Log("***\n    Finish");
+		_finished.Invoke();
+		return true;
+	}
+
+	public void WriteText(string text)
+	{
+			Debug.Log(text);
 	}
 }
