@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Coin))]
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CircleCollider2D))]
 
 public class Coin : MonoBehaviour
 {
@@ -11,11 +11,11 @@ public class Coin : MonoBehaviour
 	[SerializeField] private float _speedDefaultRotation;
 	[SerializeField] private AudioClip _collectedSound;
 
-	private Coroutine _defaultRotation;
+	private Coroutine _defaultRotationJob;
 
 	private void OnEnable()
 	{
-		_defaultRotation = StartCoroutine(DefaultRotation());
+		_defaultRotationJob = StartCoroutine(DefaultRotation());
 	}
 
 	public int GetCoinNominalValue()

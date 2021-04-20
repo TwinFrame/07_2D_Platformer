@@ -35,11 +35,7 @@ public class CollectCheckPoints : MonoBehaviour
 		}
 
 		_finished.Invoke();
-		return true;
-	}
 
-	public void WriteText(string text)
-	{
-			Debug.Log(text);
+		return true;
 	}
 }

@@ -315,7 +315,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 78, y: 2}
+  m_Size: {x: 82.53, y: 2}
   m_EdgeRadius: 0
 --- !u!1001 &77928878
 PrefabInstance:
@@ -396,7 +396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &87895360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9895,7 +9895,7 @@ GameObject:
   - component: {fileID: 1562411585}
   - component: {fileID: 1562411586}
   m_Layer: 0
-  m_Name: StaticCoins
+  m_Name: CoinsOnMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

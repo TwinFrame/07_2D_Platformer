@@ -9,17 +9,15 @@ public class FlagRotation : MonoBehaviour
     [SerializeField] private float _timeFlagRotation;
 
     private CheckPointFlag _checkPointFlag;
-    private Sequence _flagRotationSequence;
 
     private void Start()
     {
         _checkPointFlag = GetComponentInChildren<CheckPointFlag>();
-        _flagRotationSequence = DOTween.Sequence();
     }
 
     public void FlagLoopRotaion()
     {
-        _flagRotationSequence.Append(_checkPointFlag.transform.DORotate(new Vector3(0, 0, _angleFlagRotation), _timeFlagRotation).SetLoops(-1, LoopType.Yoyo));
-        _flagRotationSequence.SetLoops(-1, LoopType.Yoyo);
+        _checkPointFlag.transform.DORotate(new Vector3(0, 0, _angleFlagRotation), _timeFlagRotation)
+            .SetOptions(false).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
     }
 }

@@ -3,87 +3,76 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
 
 public class RoboMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpPower;
-    [SerializeField] private float _timeBeforeRunning;
 
     private Rigidbody2D _rigidbody2D;
-    private Animator _animator;
     private Vector2 _jumpForce;
     private Vector3 _leftDirection;
     private Vector3 _rightDirection;
-    private float _runningTime;
     private float _currentSpeed;
+    private bool _isMoving;
+    private Coroutine _moving;
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-
 
         _rightDirection = transform.localScale;
         _leftDirection = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
-    private void Update()
+    public void Moving(bool isRightDirection)
     {
-        if (!Input.anyKey)
-        {
-            _runningTime = 0;
-            _animator.SetBool("Run", false);
-            _animator.SetBool("Walk", false);
-        }
+        if (_moving != null)
+            StopCoroutine(_moving);
 
-        _runningTime += Time.deltaTime;
+        _moving = StartCoroutine(MovingJob(isRightDirection));
+    }
 
-        if (_runningTime >= _timeBeforeRunning)
-        {
-            _animator.SetBool("Run", true);
-        }
+    public void Running()
+    {
+        _currentSpeed = _speed * 1.8f;
+    }
 
-        if (_animator.GetBool("Run"))
-        {
-            _currentSpeed = _speed * 1.8f;
-        }
-        else
-        {
-            _currentSpeed = _speed;
-        }
+    public void StopMovement()
+    {
+        _isMoving = false;
+        _currentSpeed = _speed;
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
+        if (_moving != null)
+            StopCoroutine(_moving);
+    }
 
-            _animator.SetBool("Walk", true);
+    public void Jump()
+    {
+        _jumpForce = new Vector2(0, _jumpPower * _currentSpeed);
+        _rigidbody2D.AddForce(_jumpForce);
+    }
 
-            transform.localScale = _rightDirection;
+    private IEnumerator MovingJob(bool isRightDirection)
+    {
+        _isMoving = true;
 
-            transform.Translate(_currentSpeed * Time.deltaTime, 0, 0);
-        }
+        while (_isMoving)
+		{
+            if (isRightDirection)
+			{
+                transform.localScale = _rightDirection;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            _animator.SetBool("Walk", true);
+                transform.Translate(_currentSpeed * Time.deltaTime, 0, 0);
+            }
+			else
+			{
+                transform.localScale = _leftDirection;
 
-            transform.Translate(-1 * _currentSpeed * Time.deltaTime, 0, 0);
-
-            transform.localScale = _leftDirection;
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            _animator.SetTrigger("Jump");
-
-            _jumpForce = new Vector2(0, _jumpPower * _currentSpeed);
-            _rigidbody2D.AddForce(_jumpForce);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _animator.SetTrigger("Hit");
+                transform.Translate(-1 * _currentSpeed * Time.deltaTime, 0, 0);
+            }
+            
+            yield return null;
         }
     }
 }

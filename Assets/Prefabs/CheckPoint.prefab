@@ -128,7 +128,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2393292835132592501, guid: c6dbae173807dfa4bad108547ff463de, type: 3}
         m_TargetAssemblyTypeName: Robo, Assembly-CSharp
         m_MethodName: SetResapwnPosition
         m_Mode: 1
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174aa09fef70ca74b9cff273feb61210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angleFlagRotation: 175
+  _angleFlagRotation: 360
   _timeFlagRotation: 1.5
 --- !u!198 &894972866
 ParticleSystem:
