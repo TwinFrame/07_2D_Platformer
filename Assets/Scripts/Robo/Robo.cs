@@ -7,13 +7,16 @@ using UnityEngine;
 
 public class Robo : MonoBehaviour
 {
-	[SerializeField] private int _health;
+	[SerializeField] private int _inputHealth;
 
+	private int _health;
 	public Vector3 _respawnPosition { get; set; }
 	public int _wallet { get; set; }
 
 	private void OnEnable()
 	{
+		_health = _inputHealth;
+
 		_respawnPosition = transform.localPosition;
 	}
 
@@ -30,7 +33,15 @@ public class Robo : MonoBehaviour
 
 		if (_health <= 0)
 		{
+			_health = _inputHealth;
+
+			transform.localPosition = _respawnPosition;
+
+			GetComponent<Animator>().SetTrigger("Birth");
+
 			Debug.Log("Вы проиграли.");
+
+			return;
 		}
 
 		Debug.Log($"Здоровье: {_health} (-{damage})");

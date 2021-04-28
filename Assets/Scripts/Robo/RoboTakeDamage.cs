@@ -5,13 +5,13 @@ using UnityEngine.Events;
 
 public class RoboTakeDamage : MonoBehaviour
 {
-	[SerializeField] private TakeDamageEvent _tookDamage;
+	[SerializeField] private TakeDamageEvent _takeDamage;
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
 		{
-			_tookDamage.Invoke(enemy.GetDamage());
+			_takeDamage.Invoke(enemy.GetDamage());
 		}
 	}
 }

@@ -16,7 +16,7 @@ public class CollectCheckPoints : MonoBehaviour
 
 	}
 
-	private void FixedUpdate()
+	private void LateUpdate()
 	{
 		if (!_isCollectedAllCheckpoint)
 		{

@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 4559582932280896506}
   - component: {fileID: 377614611180638203}
   - component: {fileID: 4837055561956214656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Robo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

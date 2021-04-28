@@ -2,43 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class RoboCollectingCoins : MonoBehaviour
 {
-	private Coroutine _destroyCoin;
+	private Coin _coin;
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		DestroyCoin(collider);
-	}
-
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		DestroyCoin(collision);
-	}
-
-	private void DestroyCoin(Collision2D collision)
-	{
-		if (collision.gameObject.TryGetComponent<Coin>(out Coin coin))
+		if (collider.gameObject.TryGetComponent<CoinTrigger>(out CoinTrigger coinTrigger))
 		{
-			gameObject.GetComponent<Robo>().AddToWallet(coin.GetCoinNominalValue());
+			_coin = coinTrigger.GetComponentInParent<Coin>();
 
-			GetComponent<AudioSource>().PlayOneShot(coin.GetCollectedSound());
+			GetComponent<Robo>().AddToWallet(_coin.GetCoinNominalValue());
 
-			Destroy(collision.gameObject);
-		}
-	}
+			GetComponent<AudioSource>().PlayOneShot(_coin.GetCollectedSound());
 
-	private void DestroyCoin(Collider2D collider)
-	{
-		if (collider.gameObject.TryGetComponent<Coin>(out Coin coin))
-		{
-			gameObject.GetComponent<Robo>().AddToWallet(coin.GetCoinNominalValue());
-
-			GetComponent<AudioSource>().PlayOneShot(coin.GetCollectedSound());
-
-			Destroy(collider.gameObject);
+			Destroy(_coin.gameObject);
 		}
 	}
 }

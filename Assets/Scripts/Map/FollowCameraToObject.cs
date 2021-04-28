@@ -14,7 +14,7 @@ public class FollowCameraToObject : MonoBehaviour
 		_startPosition = transform.position;
 	}
 
-	private void FixedUpdate()
+	private void LateUpdate()
 	{
 		_currentPosition = _startPosition + _trackingObject.transform.position;
 

@@ -6,9 +6,8 @@ public class InstantiateCoins : MonoBehaviour
 {
 	[SerializeField] private int _countCoins;
 	[SerializeField] private float _duration;
-	[SerializeField] private Coin[] _coins;
+	[SerializeField] private Coin _coin;
 
-	private int _currentNumCoin;
 	private Vector2 _currentForce;
 	private WaitForSeconds _waitForDurationSeconds;
 	private Coroutine _startInstantiateCoins;
@@ -33,10 +32,11 @@ public class InstantiateCoins : MonoBehaviour
 	{
 		while (_countInstantiatedCoins <= _countCoins)
 		{
-			_currentNumCoin = Random.Range(0, _coins.Length);
 			_currentForce.Set(Random.Range(-300f, 300f), 0);
 
-			var _currentCoin = Instantiate(_coins[_currentNumCoin], transform.localPosition, Quaternion.identity);
+			var _currentCoin = Instantiate(_coin, transform.localPosition, Quaternion.identity);
+
+			_coin.SetRandomCoin();
 
 			_currentCoin.GetComponent<Rigidbody2D>().AddForce(_currentForce);
 

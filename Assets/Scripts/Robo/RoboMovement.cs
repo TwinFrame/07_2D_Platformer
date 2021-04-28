@@ -15,7 +15,7 @@ public class RoboMovement : MonoBehaviour
     private Vector3 _rightDirection;
     private float _currentSpeed;
     private bool _isMoving;
-    private Coroutine _moving;
+    private Coroutine _movingJob;
 
     private void Awake()
     {
@@ -27,10 +27,10 @@ public class RoboMovement : MonoBehaviour
 
     public void Moving(bool isRightDirection)
     {
-        if (_moving != null)
-            StopCoroutine(_moving);
+        if (_movingJob != null)
+            StopCoroutine(_movingJob);
 
-        _moving = StartCoroutine(MovingJob(isRightDirection));
+        _movingJob = StartCoroutine(MovingJob(isRightDirection));
     }
 
     public void Running()
@@ -43,8 +43,8 @@ public class RoboMovement : MonoBehaviour
         _isMoving = false;
         _currentSpeed = _speed;
 
-        if (_moving != null)
-            StopCoroutine(_moving);
+        if (_movingJob != null)
+            StopCoroutine(_movingJob);
     }
 
     public void Jump()
