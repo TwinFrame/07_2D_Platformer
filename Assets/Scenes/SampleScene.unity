@@ -10976,6 +10976,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2393292835132592501, guid: c6dbae173807dfa4bad108547ff463de, type: 3}
+      propertyPath: _fullHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393292835132592501, guid: c6dbae173807dfa4bad108547ff463de, type: 3}
       propertyPath: _inputHealth
       value: 100
       objectReference: {fileID: 0}
