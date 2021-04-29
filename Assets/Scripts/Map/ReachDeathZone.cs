@@ -11,9 +11,9 @@ public class ReachDeathZone : MonoBehaviour
 	{
 		if (collision.TryGetComponent<Robo>(out Robo Robo))
 		{
-			Robo.transform.localPosition = Robo._respawnPosition;
+			Robo.transform.localPosition = Robo.GetRespawnPosition();
 
-			Robo.GetComponent<Animator>().SetTrigger("Birth"); 
+			Robo.BirthAnimation(); 
 
 			return;
 		}

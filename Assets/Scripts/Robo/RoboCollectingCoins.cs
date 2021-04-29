@@ -12,7 +12,7 @@ public class RoboCollectingCoins : MonoBehaviour
 		{
 			_coin = coinTrigger.GetComponentInParent<Coin>();
 
-			GetComponent<Robo>().AddToWallet(_coin.GetCoinNominalValue());
+			GetComponent<Robo>().AddCoin(_coin.GetCoinNominalValue());
 
 			GetComponent<AudioSource>().PlayOneShot(_coin.GetCollectedSound());
 
