@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class CheckPointFlag : MonoBehaviour
 {
-	public bool _isReached { get; set; }
+	private bool _isReached;
 
-	public void SetReached()
+	public void SetIsReached()
 	{
 		_isReached = true;
+	}
+
+	public bool GetIsReached()
+	{
+		return _isReached;
 	}
 }

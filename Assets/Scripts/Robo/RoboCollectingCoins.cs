@@ -6,6 +6,11 @@ public class RoboCollectingCoins : MonoBehaviour
 {
 	private Coin _coin;
 
+	private void Awake()
+	{
+		
+	}
+
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.gameObject.TryGetComponent<CoinTrigger>(out CoinTrigger coinTrigger))

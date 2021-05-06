@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Robo))]
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Animator))]
 
 public class Robo : MonoBehaviour
 {

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class CollectCheckPoints : MonoBehaviour
 {
-	[SerializeField] UnityEvent _finished;
+	[SerializeField] private UnityEvent _finished;
 
 	private CheckPointFlag[] _checkPointFlags;
 	private bool _isCollectedAllCheckpoint;
@@ -19,16 +19,14 @@ public class CollectCheckPoints : MonoBehaviour
 	private void LateUpdate()
 	{
 		if (!_isCollectedAllCheckpoint)
-		{
 			_isCollectedAllCheckpoint = CollectedAllCheckPoints();
-		}
 	}
 
 	public bool CollectedAllCheckPoints()
 	{
 		foreach (var flag in _checkPointFlags)
 		{
-			if (!flag._isReached)
+			if (!flag.GetIsReached())
 			{
 				return false;
 			}
